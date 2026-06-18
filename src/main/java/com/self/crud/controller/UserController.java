@@ -2,12 +2,14 @@ package com.self.crud.controller;
 
 import com.self.crud.entity.User;
 import com.self.crud.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/crud/users")
+
 public class UserController{
 
     private final UserService service;
@@ -17,7 +19,7 @@ public class UserController{
     }
 
     @PostMapping("/create")
-    public User createUser(@RequestBody User user) {
+    public User createUser(@Valid @RequestBody User user) {
         return service.save(user);
     }
 
@@ -32,7 +34,7 @@ public class UserController{
     }
 
     @PutMapping("/update/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public User updateUser(@PathVariable Long id,@Valid @RequestBody User user) {
         return service.updateUser(id, user);
     }
 
