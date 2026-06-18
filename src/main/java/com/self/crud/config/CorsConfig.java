@@ -16,7 +16,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
 
                 registry.addMapping("/**")
-                        .allowedOrigins("https://crud-api-with-react-java.vercel.app/")
+                        .allowedOrigins("https://crud-api-with-react-java.vercel.app/","http://192.168.1.36:5173/")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
             }
